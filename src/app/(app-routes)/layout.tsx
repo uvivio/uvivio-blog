@@ -7,15 +7,15 @@ import NextTopLoader from "nextjs-toploader";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
 import type { PropsWithChildren } from "react";
 import { Toaster } from "react-hot-toast";
-import "./globals.css";
+import "../globals.css";
 
 const secondaryFont = local({
-  src: "../../public/assets/fonts/CabinetGrotesk-Variable.ttf",
+  src: "../../../public/assets/fonts/CabinetGrotesk-Variable.ttf",
   variable: "--font-secondary",
 });
 
 const primaryFont = local({
-  src: "../../public/assets/fonts/Satoshi-Variable.ttf",
+  src: "../../../public/assets/fonts/Satoshi-Variable.ttf",
   variable: "--font-primary",
 });
 
