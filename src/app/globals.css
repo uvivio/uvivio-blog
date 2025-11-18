@@ -1,0 +1,245 @@
+@source "../node_modules/streamdown/dist/index.js";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .paused {
+    animation-play-state: paused;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none !important;
+  }
+}
+
+/* Hides the scrollbar across all major browsers */
+.hide-scrollbar {
+  overflow: auto; /* Enable scrolling */
+}
+
+/* Webkit-based browsers (Chrome, Safari, Edge) */
+.hide-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0; /* Hides horizontal scrollbars if present */
+}
+
+/* Firefox */
+.hide-scrollbar {
+  scrollbar-width: none; /* Hides the scrollbar in Firefox */
+}
+
+/* Completely hides scrollbar track/thumb for webkit */
+.hide-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.hide-scrollbar::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+@keyframes wobble {
+  0% {
+    transform: rotate(0deg) translateX(0);
+  }
+  25% {
+    transform: rotate(1deg) translateX(5px);
+  }
+  50% {
+    transform: rotate(-1deg) translateX(-5px);
+  }
+  75% {
+    transform: rotate(1deg) translateX(5px);
+  }
+  100% {
+    transform: rotate(0deg) translateX(0);
+  }
+}
+
+.ant-picker-cell-disabled {
+  opacity: 0.5; /* Make disabled dates visibly different */
+}
+
+.tiptap {
+  outline: none !important;
+  box-shadow: none !important;
+  padding-bottom: 50px !important;
+}
+
+@keyframes wildGradient {
+  0% {
+    background-position: 0% 50%;
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    background-position: 100% 50%;
+    filter: hue-rotate(180deg);
+  }
+  100% {
+    background-position: 0% 50%;
+    filter: hue-rotate(360deg);
+  }
+}
+
+.animate-wild {
+  animation: wildGradient 10s infinite linear;
+  background-size: 300% 300%;
+}
+
+.rotate-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  animation: rotate 5s linear infinite;
+  will-change: transform;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes counter-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.orbit-item {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(var(--x, 0px), var(--y, 0px)) translate(-50%, -50%)
+    scale(1);
+  transform-origin: center;
+  will-change: transform, opacity;
+  animation: orbitShrink 2s cubic-bezier(0.2, 0.9, 0.2, 1) infinite;
+  animation-fill-mode: both;
+}
+
+.orbit-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  animation: counter-rotate 5s linear infinite;
+}
+
+@keyframes orbitShrink {
+  0% {
+    transform: translate(var(--x, 0px), var(--y, 0px)) translate(-50%, -50%)
+      scale(1);
+    opacity: 1;
+  }
+  30% {
+    transform: translate(var(--x, 0px), var(--y, 0px)) translate(-50%, -50%)
+      scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(0px, 0px) translate(-50%, -50%) scale(0.12);
+    opacity: 0.55;
+  }
+  70% {
+    transform: translate(--x, 0px) translate(-50%, -50%) scale(0.15);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate(var(--x, 0px), var(--y, 0px)) translate(-50%, -50%)
+      scale(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rotate-container,
+  .orbit-item,
+  .orbit-icon {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+.custom-steps .ant-steps-item-tail {
+  top: 15px !important;
+  height: 100px !important;
+  border-color: #38bdf8 !important;
+  color: #38bdf8 !important;
+  margin-left: 5px !important;
+  background-color: none !important;
+}
+
+.custom-steps .ant-steps-item-active .ant-steps-item-icon > .ant-steps-icon {
+  color: #38bdf8 !important;
+}
+
+.custom-steps .ant-steps-item-active .ant-steps-item-title {
+  color: #38bdf8 !important;
+}
+
+/* .custom-steps .ant-steps-item-active .ant-steps-item-tail::after {
+  background-color: #38bdf8 !important;
+} */
+
+.custom-steps .ant-steps-item-active .icon-wrapper {
+  background-color: #38bdf8 !important;
+  color: white;
+}
+
+.icon-wrapper {
+  padding: 10px;
+  border-radius: 60px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  width: 40px;
+  height: 40px;
+}
+
+/* Customize Ant Design's step tail lines */
+.custom-steps .ant-steps-item-tail::after {
+  background-color: transparent !important;
+}
+
+.custom-steps .ant-steps-item {
+  overflow: visible !important;
+}
+
+/* Force horizontal layout on Steps component regardless of screen size */
+.steps-header .ant-steps {
+  flex-direction: row !important;
+}
+
+.steps-header .ant-steps-horizontal.ant-steps-label-horizontal {
+  flex-direction: row !important;
+}
+
+.steps-header .ant-steps-vertical {
+  flex-direction: row !important;
+}
+
+.steps-header .ant-steps-vertical .ant-steps-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
