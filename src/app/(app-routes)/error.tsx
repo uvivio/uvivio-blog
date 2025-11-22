@@ -1,10 +1,11 @@
-'use client';
+"use client";
 
-import AppLogo from '@/components/atoms/app-logo';
-import PrimaryButton from '@/components/atoms/buttons/primary-button';
-import * as Sentry from '@sentry/nextjs';
-import { Result } from 'antd';
-import { useEffect } from 'react';
+import AppLogo from "@/components/atoms/app-logo";
+import PrimaryButton from "@/components/atoms/buttons/primary-button";
+import * as Sentry from "@sentry/nextjs";
+import { Result } from "antd";
+import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 interface ErrorBoundaryHandlerProps {
   error: Error;
@@ -16,10 +17,13 @@ export default function ErrorBoundaryHandler({
   reset,
 }: ErrorBoundaryHandlerProps) {
   console.dir({ error }, { depth: Infinity });
-  document.title = 'Application Error';
+  document.title = "Application Error";
+  const pathname = usePathname();
 
   useEffect(() => {
-    Sentry.captureException(error);
+    if (!pathname.includes("/studio")) {
+      Sentry.captureException(error);
+    }
   }, [error]);
 
   return (
@@ -33,23 +37,23 @@ export default function ErrorBoundaryHandler({
         <Result
           status="500"
           title="An unexpected error occurred."
-          subTitle={error.message || 'Something went wrong'}
+          subTitle={error.message || "Something went wrong"}
           extra={[
             <PrimaryButton
               variant="outlined"
               onClick={() => {
                 if (history.length > 0) history.back();
-                else location.href = '/dashboard';
+                else location.href = "/dashboard";
               }}
               className="p-3 px-20"
-              key={'home'}
+              key={"home"}
             >
               Go back
             </PrimaryButton>,
             <PrimaryButton
               onClick={() => reset()}
               className="p-3 px-20"
-              key={'retry'}
+              key={"retry"}
             >
               Retry
             </PrimaryButton>,
