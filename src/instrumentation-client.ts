@@ -1,10 +1,10 @@
-import * as Sentry from '@sentry/nextjs';
+import * as Sentry from "@sentry/nextjs";
 
-console.log('🔧 instrumentation-client.ts loaded');
+console.log("🔧 instrumentation-client.ts loaded");
 
 Sentry.init({
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
-  tunnel: '/monitoring',
+  tunnel: "/monitoring",
   integrations: [Sentry.replayIntegration()],
   tracesSampleRate: 1,
   enableLogs: true,
@@ -13,14 +13,23 @@ Sentry.init({
   debug: false,
 
   beforeSend(event, hint) {
-    console.log('⚡ beforeSend hook triggered');
-    console.log('⚡ Event ID:', event.event_id);
-    console.log('⚡ Error:', event.exception?.values?.[0]?.value);
+    console.log("⚡ beforeSend hook triggered");
+    console.log("⚡ Event ID:", event.event_id);
+    console.log("⚡ Error:", event.exception?.values?.[0]?.value);
 
-    if (typeof window !== 'undefined') {
-      fetch('/api/sentry-errors', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+    // Filter out Sanity Studio errors
+    if (
+      typeof window !== "undefined" &&
+      window.location.pathname.includes("/studio")
+    ) {
+      console.log("⚡ Ignoring error from /studio route");
+      return null;
+    }
+
+    if (typeof window !== "undefined") {
+      fetch("/api/sentry-errors", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           eventId: event.event_id,
           message: event.exception?.values?.[0]?.value || event.message,
@@ -29,7 +38,7 @@ Sentry.init({
           user: event.user,
         }),
       }).catch((err) => {
-        console.error('Failed to send error to API:', err);
+        console.error("Failed to send error to API:", err);
       });
     }
 
