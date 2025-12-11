@@ -20,11 +20,11 @@ export default function ErrorBoundaryHandler({
   document.title = "Application Error";
   const pathname = usePathname();
 
-  useEffect(() => {
-    if (!pathname.includes("/studio")) {
-      Sentry.captureException(error);
-    }
-  }, [error]);
+  // useEffect(() => {
+  //   if (!pathname.includes("/studio")) {
+  //     Sentry.captureException(error);
+  //   }
+  // }, [error]);
 
   return (
     <>
