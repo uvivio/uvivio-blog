@@ -15,7 +15,7 @@
 // Source: schema.json
 export type Post = {
   _id: string;
-  _type: 'post';
+  _type: "post";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -24,71 +24,69 @@ export type Post = {
   excerpt: string;
   author: {
     _ref: string;
-    _type: 'reference';
+    _type: "reference";
     _weak?: boolean;
-    [internalGroqTypeReferenceTo]?: 'author';
+    [internalGroqTypeReferenceTo]?: "author";
   };
   mainImage: {
     asset?: {
       _ref: string;
-      _type: 'reference';
+      _type: "reference";
       _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
     alt?: string;
-    _type: 'image';
+    _type: "image";
   };
   categories: Array<{
     _ref: string;
-    _type: 'reference';
+    _type: "reference";
     _weak?: boolean;
     _key: string;
-    [internalGroqTypeReferenceTo]?: 'category';
+    [internalGroqTypeReferenceTo]?: "category";
   }>;
   publishedAt: string;
   readTime?: number;
-  body: Array<
-    | {
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: 'span';
-          _key: string;
-        }>;
-        style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'blockquote';
-        listItem?: 'bullet';
-        markDefs?: Array<{
-          href?: string;
-          _type: 'link';
-          _key: string;
-        }>;
-        level?: number;
-        _type: 'block';
-        _key: string;
-      }
-    | {
-        asset?: {
-          _ref: string;
-          _type: 'reference';
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: 'image';
-        _key: string;
-      }
-  >;
+  body: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }>;
+  views?: number;
 };
 
 export type Author = {
   _id: string;
-  _type: 'author';
+  _type: "author";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -98,38 +96,38 @@ export type Author = {
   image: {
     asset?: {
       _ref: string;
-      _type: 'reference';
+      _type: "reference";
       _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     };
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
-    _type: 'image';
+    _type: "image";
   };
   bio?: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
-      _type: 'span';
+      _type: "span";
       _key: string;
     }>;
-    style?: 'normal';
+    style?: "normal";
     listItem?: never;
     markDefs?: Array<{
       href?: string;
-      _type: 'link';
+      _type: "link";
       _key: string;
     }>;
     level?: number;
-    _type: 'block';
+    _type: "block";
     _key: string;
   }>;
 };
 
 export type Category = {
   _id: string;
-  _type: 'category';
+  _type: "category";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -138,43 +136,40 @@ export type Category = {
   description?: string;
 };
 
-export type BlockContent = Array<
-  | {
-      children?: Array<{
-        marks?: Array<string>;
-        text?: string;
-        _type: 'span';
-        _key: string;
-      }>;
-      style?: 'normal' | 'h1' | 'h2' | 'h3' | 'h4' | 'blockquote';
-      listItem?: 'bullet';
-      markDefs?: Array<{
-        href?: string;
-        _type: 'link';
-        _key: string;
-      }>;
-      level?: number;
-      _type: 'block';
-      _key: string;
-    }
-  | {
-      asset?: {
-        _ref: string;
-        _type: 'reference';
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
-      };
-      media?: unknown;
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      alt?: string;
-      _type: 'image';
-      _key: string;
-    }
->;
+export type BlockContent = Array<{
+  children?: Array<{
+    marks?: Array<string>;
+    text?: string;
+    _type: "span";
+    _key: string;
+  }>;
+  style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+  listItem?: "bullet";
+  markDefs?: Array<{
+    href?: string;
+    _type: "link";
+    _key: string;
+  }>;
+  level?: number;
+  _type: "block";
+  _key: string;
+} | {
+  asset?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+  };
+  media?: unknown;
+  hotspot?: SanityImageHotspot;
+  crop?: SanityImageCrop;
+  alt?: string;
+  _type: "image";
+  _key: string;
+}>;
 
 export type SanityImagePaletteSwatch = {
-  _type: 'sanity.imagePaletteSwatch';
+  _type: "sanity.imagePaletteSwatch";
   background?: string;
   foreground?: string;
   population?: number;
@@ -182,7 +177,7 @@ export type SanityImagePaletteSwatch = {
 };
 
 export type SanityImagePalette = {
-  _type: 'sanity.imagePalette';
+  _type: "sanity.imagePalette";
   darkMuted?: SanityImagePaletteSwatch;
   lightVibrant?: SanityImagePaletteSwatch;
   darkVibrant?: SanityImagePaletteSwatch;
@@ -193,14 +188,14 @@ export type SanityImagePalette = {
 };
 
 export type SanityImageDimensions = {
-  _type: 'sanity.imageDimensions';
+  _type: "sanity.imageDimensions";
   height: number;
   width: number;
   aspectRatio: number;
 };
 
 export type SanityImageHotspot = {
-  _type: 'sanity.imageHotspot';
+  _type: "sanity.imageHotspot";
   x: number;
   y: number;
   height: number;
@@ -208,7 +203,7 @@ export type SanityImageHotspot = {
 };
 
 export type SanityImageCrop = {
-  _type: 'sanity.imageCrop';
+  _type: "sanity.imageCrop";
   top: number;
   bottom: number;
   left: number;
@@ -217,7 +212,7 @@ export type SanityImageCrop = {
 
 export type SanityFileAsset = {
   _id: string;
-  _type: 'sanity.fileAsset';
+  _type: "sanity.fileAsset";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -239,7 +234,7 @@ export type SanityFileAsset = {
 
 export type SanityImageAsset = {
   _id: string;
-  _type: 'sanity.imageAsset';
+  _type: "sanity.imageAsset";
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
@@ -261,7 +256,7 @@ export type SanityImageAsset = {
 };
 
 export type SanityImageMetadata = {
-  _type: 'sanity.imageMetadata';
+  _type: "sanity.imageMetadata";
   location?: Geopoint;
   dimensions?: SanityImageDimensions;
   palette?: SanityImagePalette;
@@ -272,45 +267,30 @@ export type SanityImageMetadata = {
 };
 
 export type Geopoint = {
-  _type: 'geopoint';
+  _type: "geopoint";
   lat?: number;
   lng?: number;
   alt?: number;
 };
 
 export type Slug = {
-  _type: 'slug';
+  _type: "slug";
   current: string;
   source?: string;
 };
 
 export type SanityAssetSourceData = {
-  _type: 'sanity.assetSourceData';
+  _type: "sanity.assetSourceData";
   name?: string;
   id?: string;
   url?: string;
 };
 
-export type AllSanitySchemaTypes =
-  | Post
-  | Author
-  | Category
-  | BlockContent
-  | SanityImagePaletteSwatch
-  | SanityImagePalette
-  | SanityImageDimensions
-  | SanityImageHotspot
-  | SanityImageCrop
-  | SanityFileAsset
-  | SanityImageAsset
-  | SanityImageMetadata
-  | Geopoint
-  | Slug
-  | SanityAssetSourceData;
+export type AllSanitySchemaTypes = Post | Author | Category | BlockContent | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | Slug | SanityAssetSourceData;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: src/sanity/lib/fetch.ts
 // Variable: allBlogPostsQuery
-// Query: *[_type == "post"] | order(publishedAt desc) {    _id,    title,    slug,    excerpt,    mainImage {      asset,      alt    },    "category": categories[0]-> {      _id,      title,      slug    },    author-> {      name,      role,      image {        asset      }    },    publishedAt,    readTime  }
+// Query: *[_type == "post"] | order(publishedAt desc) {    _id,    title,    slug,    excerpt,    mainImage {      asset,      alt    },    "category": categories[0]-> {      _id,      title,      slug    },    author-> {      name,      role,      image {        asset      }    },    publishedAt,    readTime,    views  }
 export type AllBlogPostsQueryResult = Array<{
   _id: string;
   title: string;
@@ -319,9 +299,9 @@ export type AllBlogPostsQueryResult = Array<{
   mainImage: {
     asset: {
       _ref: string;
-      _type: 'reference';
+      _type: "reference";
       _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     } | null;
     alt: string | null;
   };
@@ -336,17 +316,18 @@ export type AllBlogPostsQueryResult = Array<{
     image: {
       asset: {
         _ref: string;
-        _type: 'reference';
+        _type: "reference";
         _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
       } | null;
     };
   };
   publishedAt: string;
   readTime: number | null;
+  views: number | null;
 }>;
 // Variable: postsByCategoryQuery
-// Query: *[_type == "post" && $categorySlug in categories[]->slug.current] | order(publishedAt desc) {    _id,    title,    slug,    excerpt,    mainImage {      asset,      alt    },    "category": categories[0]-> {      _id,      title,      slug    },    author-> {      name,      role,      image {        asset      }    },    publishedAt,    readTime  }
+// Query: *[_type == "post" && $categorySlug in categories[]->slug.current] | order(publishedAt desc) {    _id,    title,    slug,    excerpt,    mainImage {      asset,      alt    },    "category": categories[0]-> {      _id,      title,      slug    },    author-> {      name,      role,      image {        asset      }    },    publishedAt,    readTime,    views  }
 export type PostsByCategoryQueryResult = Array<{
   _id: string;
   title: string;
@@ -355,9 +336,9 @@ export type PostsByCategoryQueryResult = Array<{
   mainImage: {
     asset: {
       _ref: string;
-      _type: 'reference';
+      _type: "reference";
       _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     } | null;
     alt: string | null;
   };
@@ -372,17 +353,18 @@ export type PostsByCategoryQueryResult = Array<{
     image: {
       asset: {
         _ref: string;
-        _type: 'reference';
+        _type: "reference";
         _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
       } | null;
     };
   };
   publishedAt: string;
   readTime: number | null;
+  views: number | null;
 }>;
 // Variable: searchPostsQuery
-// Query: *[_type == "post" && (    title match $searchQuery + "*" ||    excerpt match $searchQuery + "*"  )] | order(publishedAt desc) {    _id,    title,    slug,    excerpt,    mainImage {      asset,      alt    },    "category": categories[0]-> {      _id,      title,      slug    },    author-> {      name,      role,      image {        asset      }    },    publishedAt,    readTime  }
+// Query: *[_type == "post" && (    title match $searchQuery + "*" ||    excerpt match $searchQuery + "*"  )] | order(publishedAt desc) {    _id,    title,    slug,    excerpt,    mainImage {      asset,      alt    },    "category": categories[0]-> {      _id,      title,      slug    },    author-> {      name,      role,      image {        asset      }    },    publishedAt,    readTime,    views  }
 export type SearchPostsQueryResult = Array<{
   _id: string;
   title: string;
@@ -391,9 +373,9 @@ export type SearchPostsQueryResult = Array<{
   mainImage: {
     asset: {
       _ref: string;
-      _type: 'reference';
+      _type: "reference";
       _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     } | null;
     alt: string | null;
   };
@@ -408,17 +390,18 @@ export type SearchPostsQueryResult = Array<{
     image: {
       asset: {
         _ref: string;
-        _type: 'reference';
+        _type: "reference";
         _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
       } | null;
     };
   };
   publishedAt: string;
   readTime: number | null;
+  views: number | null;
 }>;
 // Variable: postBySlugQuery
-// Query: *[_type == "post" && slug.current == $slug][0] {    _id,    title,    slug,    excerpt,    mainImage {      asset,      alt    },    categories[]-> {      _id,      title,      slug    },    author-> {      name,      role,      image {        asset      },      bio    },    publishedAt,    readTime,    body  }
+// Query: *[_type == "post" && slug.current == $slug][0] {    _id,    title,    slug,    excerpt,    mainImage {      asset,      alt    },    categories[]-> {      _id,      title,      slug    },    author-> {      name,      role,      image {        asset      },      bio    },    publishedAt,    readTime,    body,    views  }
 export type PostBySlugQueryResult = {
   _id: string;
   title: string;
@@ -427,9 +410,9 @@ export type PostBySlugQueryResult = {
   mainImage: {
     asset: {
       _ref: string;
-      _type: 'reference';
+      _type: "reference";
       _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     } | null;
     alt: string | null;
   };
@@ -444,66 +427,64 @@ export type PostBySlugQueryResult = {
     image: {
       asset: {
         _ref: string;
-        _type: 'reference';
+        _type: "reference";
         _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
       } | null;
     };
     bio: Array<{
       children?: Array<{
         marks?: Array<string>;
         text?: string;
-        _type: 'span';
+        _type: "span";
         _key: string;
       }>;
-      style?: 'normal';
+      style?: "normal";
       listItem?: never;
       markDefs?: Array<{
         href?: string;
-        _type: 'link';
+        _type: "link";
         _key: string;
       }>;
       level?: number;
-      _type: 'block';
+      _type: "block";
       _key: string;
     }> | null;
   };
   publishedAt: string;
   readTime: number | null;
-  body: Array<
-    | {
-        children?: Array<{
-          marks?: Array<string>;
-          text?: string;
-          _type: 'span';
-          _key: string;
-        }>;
-        style?: 'blockquote' | 'h1' | 'h2' | 'h3' | 'h4' | 'normal';
-        listItem?: 'bullet';
-        markDefs?: Array<{
-          href?: string;
-          _type: 'link';
-          _key: string;
-        }>;
-        level?: number;
-        _type: 'block';
-        _key: string;
-      }
-    | {
-        asset?: {
-          _ref: string;
-          _type: 'reference';
-          _weak?: boolean;
-          [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
-        };
-        media?: unknown;
-        hotspot?: SanityImageHotspot;
-        crop?: SanityImageCrop;
-        alt?: string;
-        _type: 'image';
-        _key: string;
-      }
-  >;
+  body: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "blockquote" | "h1" | "h2" | "h3" | "h4" | "normal";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }>;
+  views: number | null;
 } | null;
 // Variable: allCategoriesQuery
 // Query: *[_type == "category"] | order(title asc) {    _id,    title,    slug,    description  }
@@ -514,7 +495,7 @@ export type AllCategoriesQueryResult = Array<{
   description: string | null;
 }>;
 // Variable: relatedPostsQuery
-// Query: *[_type == "post" && _id != $postId && $categoryId in categories[]->_id] | order(publishedAt desc) [0...3] {    _id,    title,    slug,    excerpt,    mainImage {      asset,      alt    },    "category": categories[0]-> {      _id,      title,      slug    },    author-> {      name,      role,      image {        asset      }    },    publishedAt,    readTime  }
+// Query: *[_type == "post" && _id != $postId && $categoryId in categories[]->_id] | order(publishedAt desc) [0...3] {    _id,    title,    slug,    excerpt,    mainImage {      asset,      alt    },    "category": categories[0]-> {      _id,      title,      slug    },    author-> {      name,      role,      image {        asset      }    },    publishedAt,    readTime,    views  }
 export type RelatedPostsQueryResult = Array<{
   _id: string;
   title: string;
@@ -523,9 +504,9 @@ export type RelatedPostsQueryResult = Array<{
   mainImage: {
     asset: {
       _ref: string;
-      _type: 'reference';
+      _type: "reference";
       _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
     } | null;
     alt: string | null;
   };
@@ -540,25 +521,26 @@ export type RelatedPostsQueryResult = Array<{
     image: {
       asset: {
         _ref: string;
-        _type: 'reference';
+        _type: "reference";
         _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: 'sanity.imageAsset';
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
       } | null;
     };
   };
   publishedAt: string;
   readTime: number | null;
+  views: number | null;
 }>;
 
 // Query TypeMap
-import '@sanity/client';
-declare module '@sanity/client' {
+import "@sanity/client";
+declare module "@sanity/client" {
   interface SanityQueries {
-    '\n  *[_type == "post"] | order(publishedAt desc) {\n    _id,\n    title,\n    slug,\n    excerpt,\n    mainImage {\n      asset,\n      alt\n    },\n    "category": categories[0]-> {\n      _id,\n      title,\n      slug\n    },\n    author-> {\n      name,\n      role,\n      image {\n        asset\n      }\n    },\n    publishedAt,\n    readTime\n  }\n': AllBlogPostsQueryResult;
-    '\n  *[_type == "post" && $categorySlug in categories[]->slug.current] | order(publishedAt desc) {\n    _id,\n    title,\n    slug,\n    excerpt,\n    mainImage {\n      asset,\n      alt\n    },\n    "category": categories[0]-> {\n      _id,\n      title,\n      slug\n    },\n    author-> {\n      name,\n      role,\n      image {\n        asset\n      }\n    },\n    publishedAt,\n    readTime\n  }\n': PostsByCategoryQueryResult;
-    '\n  *[_type == "post" && (\n    title match $searchQuery + "*" ||\n    excerpt match $searchQuery + "*"\n  )] | order(publishedAt desc) {\n    _id,\n    title,\n    slug,\n    excerpt,\n    mainImage {\n      asset,\n      alt\n    },\n    "category": categories[0]-> {\n      _id,\n      title,\n      slug\n    },\n    author-> {\n      name,\n      role,\n      image {\n        asset\n      }\n    },\n    publishedAt,\n    readTime\n  }\n': SearchPostsQueryResult;
-    '\n  *[_type == "post" && slug.current == $slug][0] {\n    _id,\n    title,\n    slug,\n    excerpt,\n    mainImage {\n      asset,\n      alt\n    },\n    categories[]-> {\n      _id,\n      title,\n      slug\n    },\n    author-> {\n      name,\n      role,\n      image {\n        asset\n      },\n      bio\n    },\n    publishedAt,\n    readTime,\n    body\n  }\n': PostBySlugQueryResult;
-    '\n  *[_type == "category"] | order(title asc) {\n    _id,\n    title,\n    slug,\n    description\n  }\n': AllCategoriesQueryResult;
-    '\n  *[_type == "post" && _id != $postId && $categoryId in categories[]->_id] | order(publishedAt desc) [0...3] {\n    _id,\n    title,\n    slug,\n    excerpt,\n    mainImage {\n      asset,\n      alt\n    },\n    "category": categories[0]-> {\n      _id,\n      title,\n      slug\n    },\n    author-> {\n      name,\n      role,\n      image {\n        asset\n      }\n    },\n    publishedAt,\n    readTime\n  }\n': RelatedPostsQueryResult;
+    "\n  *[_type == \"post\"] | order(publishedAt desc) {\n    _id,\n    title,\n    slug,\n    excerpt,\n    mainImage {\n      asset,\n      alt\n    },\n    \"category\": categories[0]-> {\n      _id,\n      title,\n      slug\n    },\n    author-> {\n      name,\n      role,\n      image {\n        asset\n      }\n    },\n    publishedAt,\n    readTime,\n    views\n  }\n": AllBlogPostsQueryResult;
+    "\n  *[_type == \"post\" && $categorySlug in categories[]->slug.current] | order(publishedAt desc) {\n    _id,\n    title,\n    slug,\n    excerpt,\n    mainImage {\n      asset,\n      alt\n    },\n    \"category\": categories[0]-> {\n      _id,\n      title,\n      slug\n    },\n    author-> {\n      name,\n      role,\n      image {\n        asset\n      }\n    },\n    publishedAt,\n    readTime,\n    views\n  }\n": PostsByCategoryQueryResult;
+    "\n  *[_type == \"post\" && (\n    title match $searchQuery + \"*\" ||\n    excerpt match $searchQuery + \"*\"\n  )] | order(publishedAt desc) {\n    _id,\n    title,\n    slug,\n    excerpt,\n    mainImage {\n      asset,\n      alt\n    },\n    \"category\": categories[0]-> {\n      _id,\n      title,\n      slug\n    },\n    author-> {\n      name,\n      role,\n      image {\n        asset\n      }\n    },\n    publishedAt,\n    readTime,\n    views\n  }\n": SearchPostsQueryResult;
+    "\n  *[_type == \"post\" && slug.current == $slug][0] {\n    _id,\n    title,\n    slug,\n    excerpt,\n    mainImage {\n      asset,\n      alt\n    },\n    categories[]-> {\n      _id,\n      title,\n      slug\n    },\n    author-> {\n      name,\n      role,\n      image {\n        asset\n      },\n      bio\n    },\n    publishedAt,\n    readTime,\n    body,\n    views\n  }\n": PostBySlugQueryResult;
+    "\n  *[_type == \"category\"] | order(title asc) {\n    _id,\n    title,\n    slug,\n    description\n  }\n": AllCategoriesQueryResult;
+    "\n  *[_type == \"post\" && _id != $postId && $categoryId in categories[]->_id] | order(publishedAt desc) [0...3] {\n    _id,\n    title,\n    slug,\n    excerpt,\n    mainImage {\n      asset,\n      alt\n    },\n    \"category\": categories[0]-> {\n      _id,\n      title,\n      slug\n    },\n    author-> {\n      name,\n      role,\n      image {\n        asset\n      }\n    },\n    publishedAt,\n    readTime,\n    views\n  }\n": RelatedPostsQueryResult;
   }
 }

@@ -1,5 +1,5 @@
 export const env = {
-  NODE_ENV: process.env.NODE_ENV ?? 'development',
+  NODE_ENV: process.env.NODE_ENV ?? "development",
   NEXT_PUBLIC_SUPABASE_PROJECT_ID: process.env.NEXT_PUBLIC_SUPABASE_PROJECT_ID!,
   NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL!,
   NEXT_PUBLIC_SUPABASE_ANON_KEY: process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
@@ -41,11 +41,11 @@ export const env = {
   EXCHANGE_RATE_API_KEY: process.env.EXCHANGE_RATE_API_KEY!,
   SUPABASE_SERVICE_ROLE_KEY: process.env.SUPABASE_SERVICE_ROLE_KEY!,
 
-  PAYSTACK_BASE_URL: 'https://api.paystack.co',
+  PAYSTACK_BASE_URL: "https://api.paystack.co",
   PAYSTACK_SECRET_KEY: (process.env.NEXT_PUBLIC_PAYSTACK_SECRET_KEY ??
     process.env.PAYSTACK_SECRET_KEY)!,
 
-  PLAID_BASE_URL: 'https://sandbox.plaid.com',
+  PLAID_BASE_URL: "https://sandbox.plaid.com",
   PLAID_CLIENT_ID: (process.env.NEXT_PUBLIC_PLAID_CLIENT_ID ??
     process.env.PLAID_CLIENT_ID)!,
   PLAID_SECRET_KEY: (process.env.NEXT_PUBLIC_PLAID_SECRET_KEY ??

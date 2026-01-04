@@ -474,6 +474,13 @@
           }
         },
         "optional": false
+      },
+      "views": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "number"
+        },
+        "optional": true
       }
     }
   },
