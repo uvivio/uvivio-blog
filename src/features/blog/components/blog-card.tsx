@@ -1,15 +1,15 @@
-import { Avatar } from '@/components/atoms/avatar';
-import ImageComponent from '@/components/atoms/common/image';
-import { Tag } from 'antd';
-import Image from 'next/image';
-import Link from 'next/link';
-import type { BlogPost } from '../types';
-import { BLOG_DEFAULTS, BLOG_ICONS, BLOG_TEXT } from '../constants';
+import { Avatar } from "@/components/atoms/avatar";
+import ImageComponent from "@/components/atoms/common/image";
+import { Tag } from "antd";
+import Image from "next/image";
+import Link from "next/link";
+import { BLOG_DEFAULTS, BLOG_ICONS, BLOG_TEXT } from "../constants";
+import type { BlogPost } from "../types";
 import {
   formatBlogDate,
   getAuthorImageUrl,
   getBlogImageUrl,
-} from '../utils/blog.utils';
+} from "../utils/blog.utils";
 
 type BlogCardProps = {
   post: BlogPost;
@@ -28,7 +28,7 @@ export const BlogCard = ({ post }: BlogCardProps) => {
       <div className="relative aspect-[16/10] w-full overflow-hidden bg-tertiary-3">
         <ImageComponent
           src={imageUrl}
-          alt={post.mainImage?.alt || post.title || 'Blog post image'}
+          alt={post.mainImage?.alt || post.title || "Blog post image"}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
@@ -49,7 +49,7 @@ export const BlogCard = ({ post }: BlogCardProps) => {
         </h3>
 
         <p className="mb-4 flex-1 font-primary text-sm leading-relaxed text-tertiary-8">
-          {post.excerpt || ''}
+          {post.excerpt || ""}
         </p>
 
         <div className="flex flex-col justify-between gap-3">

@@ -1,5 +1,5 @@
-import type { BlogPost } from '../types';
-import { BlogCard } from './blog-card';
+import type { BlogPost } from "../types";
+import { BlogCard } from "./blog-card";
 
 type RelatedPostsProps = {
   posts: BlogPost[];
@@ -16,7 +16,7 @@ export function RelatedPosts({ posts }: RelatedPostsProps) {
         <h2 className="mb-8 font-secondary text-3xl font-bold text-tertiary-12">
           Related Reading
         </h2>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
             <BlogCard key={post._id} post={post} />
           ))}

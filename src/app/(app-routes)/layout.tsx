@@ -2,6 +2,7 @@ import Footer from "@/components/layouts/footer";
 import Navbar from "@/components/layouts/navbar";
 import { APP_METADATA } from "@/config/metadata";
 import AntdProvider from "@/providers/antd.provider";
+import { QueryProvider } from "@/providers/query-provider";
 import local from "next/font/local";
 import NextTopLoader from "nextjs-toploader";
 import { NuqsAdapter } from "nuqs/adapters/next/app";
@@ -30,18 +31,20 @@ export default function RootLayout({ children }: PropsWithChildren) {
       >
         <div id="portal-root" />
         <Toaster position="top-right" />
-        <AntdProvider>
-          <TopLoader />
+        <QueryProvider>
+          <AntdProvider>
+            <TopLoader />
 
-          <main suppressHydrationWarning>
-            <NuqsAdapter>
-              {" "}
-              <Navbar />
-              <main>{children}</main>
-              <Footer />
-            </NuqsAdapter>
-          </main>
-        </AntdProvider>
+            <main suppressHydrationWarning>
+              <NuqsAdapter>
+                {" "}
+                <Navbar />
+                <main>{children}</main>
+                <Footer />
+              </NuqsAdapter>
+            </main>
+          </AntdProvider>
+        </QueryProvider>
       </body>
     </html>
   );

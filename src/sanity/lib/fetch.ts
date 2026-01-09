@@ -1,5 +1,5 @@
-import { defineQuery } from 'next-sanity';
-import { client } from './client';
+import { defineQuery } from "next-sanity";
+import { client } from "./client";
 
 export const allBlogPostsQuery = defineQuery(`
   *[_type == "post"] | order(publishedAt desc) {
@@ -24,7 +24,8 @@ export const allBlogPostsQuery = defineQuery(`
       }
     },
     publishedAt,
-    readTime
+    readTime,
+    views
   }
 `);
 
@@ -51,7 +52,8 @@ export const postsByCategoryQuery = defineQuery(`
       }
     },
     publishedAt,
-    readTime
+    readTime,
+    views
   }
 `);
 
@@ -81,7 +83,8 @@ export const searchPostsQuery = defineQuery(`
       }
     },
     publishedAt,
-    readTime
+    readTime,
+    views
   }
 `);
 
@@ -110,7 +113,8 @@ export const postBySlugQuery = defineQuery(`
     },
     publishedAt,
     readTime,
-    body
+    body,
+    views
   }
 `);
 
@@ -146,7 +150,8 @@ export const relatedPostsQuery = defineQuery(`
       }
     },
     publishedAt,
-    readTime
+    readTime,
+    views
   }
 `);
 

@@ -5,12 +5,14 @@ import Image from "next/image";
 import { BLOG_DEFAULTS, BLOG_ICONS, BLOG_TEXT } from "../constants";
 import type { BlogPostDetail } from "../types";
 import { formatBlogDate, getAuthorImageUrl } from "../utils/blog.utils";
+import { ViewCounter } from "./view-counter";
 
 type BlogPostHeaderProps = {
   post: BlogPostDetail;
+  views?: number;
 };
 
-export function BlogPostHeader({ post }: BlogPostHeaderProps) {
+export async function BlogPostHeader({ post, views }: BlogPostHeaderProps) {
   const authorImageUrl = getAuthorImageUrl(post.author?.image?.asset, 80);
   const formattedDate = formatBlogDate(post.publishedAt);
 
@@ -26,7 +28,7 @@ export function BlogPostHeader({ post }: BlogPostHeaderProps) {
         </Tag>
         {post.readTime && (
           <>
-            <span className="flex items-center gap-1 font-primary text-tertiary-7 md:ml-auto">
+            <span className="flex items-center gap-1 font-primary text-tertiary-7">
               <Image
                 src={BLOG_ICONS.HOURGLASS_HIGH}
                 alt=""
@@ -38,6 +40,12 @@ export function BlogPostHeader({ post }: BlogPostHeaderProps) {
             </span>
           </>
         )}
+        <span className="ml-auto">
+          <ViewCounter
+            slug={post.slug?.current || ""}
+            initialViews={views || 0}
+          />
+        </span>
       </div>
 
       <h1 className="mb-5 font-secondary text-3xl font-bold leading-tight tracking-tight text-tertiary-12 sm:text-5xl md:mb-8 md:text-4xl">
